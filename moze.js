@@ -10,21 +10,16 @@ hostname = api.revenuecat.com, api.rc-backup.com
 
 */
 var moze = JSON.parse($response.body);
-moze.subscriber.entitlements = {
-  "Premium": {
-    "expires_date": "6666-06-06T06:06:06Z",
-    "product_identifier": "https://t.me/Guding88",
-    "purchase_date": "2023-02-23T02:33:33Z"
-  }
+moze.subscriber.entitlements["MOZE_PREMIUM_SUBSCRIPTION"] = {
+  "expires_date": "6666-06-06T06:06:06Z",
+  "purchase_date": "2023-08-16T03:56:24Z",
+  "product_identifier": "MOZE_PRO_SUBSCRIPTION_MONTHLY_BASIC"
 };
-moze.subscriber.original_purchase_date = "2023-02-23T03:33:33Z";
-moze.subscriber.subscriptions = {
-  "https://t.me/Guding88": {
-    "expires_date": "6666-06-06T06:06:06Z",
-    "original_purchase_date": "2023-02-23T02:33:33Z",
-    "purchase_date": "2023-02-23T02:33:33Z",
-    "ownership_type" : "PURCHASED",
-    "store" : "app_store"
-  }
+moze.subscriber.subscriptions["MOZE_PRO_SUBSCRIPTION_MONTHLY_BASIC"] = {
+  "expires_date": "6666-06-06T06:06:06Z",
+  "original_purchase_date": "2019-07-10T12:22:41Z",
+  "purchase_date": "2023-08-16T03:56:24Z",
+  "ownership_type" : "PURCHASED",
+  "store" : "app_store"
 };
 $done({ body: JSON.stringify(moze) });
