@@ -12,8 +12,8 @@ hostname = api.revenuecat.com, api.rc-backup.com
 */
 
 const headers = $request.headers, ua = headers['User-Agent'] || headers['user-agent'], bundle_id = headers['X-Client-Bundle-ID'] || headers['x-client-bundle-id'];
-let moze = JSON.parse($response.body);
-if(bundle_id === "app.moze" || ua.includes("MOZE")){
+let moze = JSON.parse(typeof $response != "undefined" && $response.body || "{}");
+if($response && (bundle_id === "app.moze" || ua.includes("MOZE"))){
   moze.subscriber.entitlements["MOZE_PREMIUM_SUBSCRIPTION"] = {
     "expires_date": "6666-06-06T06:06:06Z",
     "purchase_date": "2023-08-16T03:56:24Z",
