@@ -20,11 +20,9 @@ const bundleId =
 
 let result = {};
 
-if (bundleId !== "app.moze" || !/MOZE/i.test(ua)) {
-  $done({});
-}
-
 if (typeof $response === "undefined") {
+  delete $request.headers["x-revenuecat-etag"];
+  delete $request.headers["X-RevenueCat-ETag"];
   result.status = 200;
   result.headers = requestHeaders;
 } else {
