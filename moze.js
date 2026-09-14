@@ -23,7 +23,6 @@ let result = {};
 if (typeof $response === "undefined") {
   delete $request.headers["x-revenuecat-etag"];
   delete $request.headers["X-RevenueCat-ETag"];
-  result.status = 200;
   result.headers = requestHeaders;
 } else {
   try {
@@ -50,7 +49,6 @@ if (typeof $response === "undefined") {
         store: "app_store"
       };
       
-      result.status = 200;
       result.body = JSON.stringify(body);
     }
   } catch (error) {
