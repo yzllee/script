@@ -3,8 +3,8 @@
 MOZE解锁
 
 [rewrite_local]
-^https:\/\/api\.(revenuecat|rc-backup)\.com\/.+\/(receipts$|subscribers\/?(.*?)*$) url script-response-body https://raw.githubusercontent.com/yzllee/script/refs/heads/script/moze.js
-^https:\/\/api\.(revenuecat|rc-backup)\.com\/.+\/(receipts$|subscribers\/?(.*?)*$) url script-request-header https://raw.githubusercontent.com/yzllee/script/refs/heads/script/moze.js
+^https:\/\/api\.(revenuecat|rc-backup)\.com\/.+\/(receipts$|subscribers\/gSef23k$) url script-response-body https://raw.githubusercontent.com/yzllee/script/refs/heads/script/moze.js
+^https:\/\/api\.(revenuecat|rc-backup)\.com\/.+\/(receipts$|subscribers\/gSef23k$) url script-request-header https://raw.githubusercontent.com/yzllee/script/refs/heads/script/moze.js
 
 [mitm]
 hostname = api.revenuecat.com, api.rc-backup.com
@@ -25,6 +25,7 @@ if (bundleId !== "app.moze" || !/MOZE/i.test(ua)) {
 }
 
 if (typeof $response === "undefined") {
+  result.status = 200;
   result.headers = requestHeaders;
 } else {
   try {
@@ -50,7 +51,8 @@ if (typeof $response === "undefined") {
         ownership_type: "PURCHASED",
         store: "app_store"
       };
-
+      
+      result.status = 200;
       result.body = JSON.stringify(body);
     }
   } catch (error) {
