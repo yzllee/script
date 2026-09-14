@@ -15,7 +15,7 @@ const headers = $request.headers, ua = headers['User-Agent'] || headers['user-ag
 let customHB = {};
 let mozeBody = JSON.parse(typeof $response != "undefined" && $response.body || "{}");
 if (typeof $response == "undefined") {
-  customHB.headers = $request.headers;
+  console.log(bundle_id === "app.moze", ua.includes("MOZE"))
 } else if(mozeBody && mozeBody.subscriber) {
   console.log(bundle_id === "app.moze", ua.includes("MOZE"))
   mozeBody.subscriber.entitlements["MOZE_PREMIUM_SUBSCRIPTION"] = {
