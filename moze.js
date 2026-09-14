@@ -3,8 +3,8 @@
 MOZE解锁
 
 [rewrite_local]
-^https:\/\/api\.(revenuecat|rc-backup)\.com\/.+\/(receipts$|subscribers\/?(.*?)*$)/ url script-response-body https://raw.githubusercontent.com/yzllee/script/refs/heads/script/moze.js
-^https:\/\/api\.(revenuecat|rc-backup)\.com\/.+\/(receipts$|subscribers\/?(.*?)*$)/ url script-request-header https://raw.githubusercontent.com/yzllee/script/refs/heads/script/moze.js
+^https:\/\/api\.(revenuecat|rc-backup)\.com\/.+\/(receipts$|subscribers\/?(.*?)*$) url script-response-body https://raw.githubusercontent.com/yzllee/script/refs/heads/script/moze.js
+^https:\/\/api\.(revenuecat|rc-backup)\.com\/.+\/(receipts$|subscribers\/?(.*?)*$) url script-request-header https://raw.githubusercontent.com/yzllee/script/refs/heads/script/moze.js
 
 [mitm]
 hostname = api.revenuecat.com, api.rc-backup.com
