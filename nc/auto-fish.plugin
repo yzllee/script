@@ -1,0 +1,10 @@
+#!name=自动钓鱼
+#!desc=代理钓鱼js文件到本地，实现自动钓鱼卖鱼
+#!author=wyz
+#!version=1.0.0
+
+[Rewrite]
+response if ${url} ~= /^https?:\/\/yhxweb\.cn\/nc\/assets\/chunk-fishing-[^?#]+(?:\?[^#]*)?$/ then response.body.mock_file("javascript", "https://raw.githubusercontent.com/yzllee/script/refs/heads/script/nc/auto-fish.js", 200)
+
+[MitM]
+hostname = yhxweb.cn
